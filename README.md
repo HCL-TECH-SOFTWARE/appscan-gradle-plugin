@@ -1,6 +1,14 @@
 # IBM Application Security on Cloud Gradle Plugin
 
-The IBM Application Security on Cloud Gradle plugin is used to automate the scanning of Java and Java web projects in Gradle.  It generates an IRX file for Gradle projects that have the "java" plugin and/or "war" plugins applied.  It can optionally submit the generated IRX file to the cloud service for analysis.
+Apply the power of static application security testing with IBM Application Security on Cloud – a SaaS solution that helps to eliminate vulnerabilities from applications before they are deployed. IBM Application Security on Cloud integrates directly into the SDLC, providing static, dynamic, mobile and open source testing.
+
+You can submit static and open source scans directly from the IBM Application Security on Cloud Gradle plugin or use it to generate an IRX file for later submission to the service. The results are ready quickly (90% are ready in less than one hour) having been honed by Intelligent Finding Analytics, which uses IBM’s Artificial Intelligence capabilities to greatly reduce false positives and other noise by an average of more than 98%. IFA also displays optimal locations for developers to fix multiple vulnerabilities in the code. Click [here](https://securityintelligence.com/intelligent-finding-analytics-cognitive-computing-application-security-expert/) for more information.
+
+Not yet a customer of IBM Application Security on Cloud? Click [here](http://ibm.biz/ASoC-FromIDE) for a free trial of Application Security on Cloud to use with this plugin
+
+# Prerequisites:
+
+- An account on the [IBM Application Security on Cloud](https://www.ibm.com/marketplace/cloud/application-security-on-cloud/) service. You'll need to [create an application](http://www.ibm.com/support/knowledgecenter/SSYJJF_1.0.0/ApplicationSecurityonCloud/ent_create_application.html) on the service to associate your scans with.
 
 # Usage:
 
@@ -22,10 +30,6 @@ For older Gradle versions:
 	}
 
 	apply plugin: 'com.ibm.application.security'
-
-# Prerequisites:
-
-- An account on the [IBM Application Security on Cloud](https://www.ibm.com/marketplace/cloud/application-security-on-cloud/) service. You'll need to [create an application](http://www.ibm.com/support/knowledgecenter/SSYJJF_1.0.0/ApplicationSecurityonCloud/ent_create_application.html) on the service to associate your scans with.
 
 # Tasks:
 
