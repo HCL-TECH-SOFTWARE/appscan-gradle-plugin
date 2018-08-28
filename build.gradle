@@ -1,50 +1,36 @@
 plugins {
 	id "com.gradle.plugin-publish" version "0.10.0"
 	id 'maven-publish'
-    id 'groovy'
+    	id 'groovy'
 }
 
 repositories {
-    maven { url 'https://plugins.gradle.org/m2/' }
-    mavenCentral()
+	maven { url 'https://plugins.gradle.org/m2/' }
+	mavenCentral()
 }
 
 dependencies {
-    implementation \
-        localGroovy(),
-        gradleApi(),
-        'com.hcl:appscan.sdk:1.0.6'
+	implementation \
+        	localGroovy(),
+        	gradleApi(),
+        	'com.hcl:appscan.sdk:1.0.6'
 }
 
 group = 'com.ibm.security'
 version = '1.0.0'
 
 pluginBundle {
-    website = 'https://www.ibm.com/us-en/marketplace/application-security-on-cloud'
-    vcsUrl = 'https://github.com/hclproducts/application-security-plugin'
-    description = 'IBM Application Security on Cloud Gradle Plugin'
-    tags = ['security', 'appscan', 'static analyzer', 'ibm']
+	website = 'https://www.ibm.com/us-en/marketplace/application-security-on-cloud'
+	vcsUrl = 'https://github.com/hclproducts/application-security-gradle-plugin'
+	description = 'IBM Application Security on Cloud Gradle Plugin'
+	tags = ['security', 'appscan', 'static analyzer', 'ibm']
     
-    plugins {
-        applicationSecurityPlugin {
-            id = 'com.ibm.application.security'
-            displayName = 'IBM Application Security on Cloud Gradle Plugin'
+	plugins {
+        	applicationSecurityPlugin {
+            		id = 'com.ibm.application.security'
+            		displayName = 'IBM Application Security on Cloud Plugin'
+	    		description = 'Generates an IRX file for your Java projects and submits it to the IBM Application Security on Cloud service for analysis.'
         }
     }
 }
 
-publishing {
-
-	repositories {
-		maven {
-            name = 'localRepo'
-            url = "file://${buildDir}/repo"
-        }
-	}
-
-    publications {
-        applicationSecurityPlugin(MavenPublication) {
-            from components.java
-        }
-    }
-}
