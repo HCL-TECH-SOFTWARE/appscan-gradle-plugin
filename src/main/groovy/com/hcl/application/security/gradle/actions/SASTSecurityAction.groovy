@@ -27,6 +27,7 @@ abstract class SASTSecurityAction extends SecurityAction {
         options.put(CoreConstants.SCAN_NAME, getProject().applicationsecurity.irxName)
         options.put(SASTConstants.SAVE_LOCATION, getProject().applicationsecurity.irxDir)
         options.put(CoreConstants.APP_ID, getProject().applicationsecurity.appId);
+        options.put("APPSCAN_IRGEN_CLIENT", "Gradle");
         return options;
     }
 
