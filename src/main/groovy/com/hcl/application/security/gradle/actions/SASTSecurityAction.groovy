@@ -8,7 +8,6 @@ package com.hcl.application.security.gradle.actions
 import com.hcl.appscan.sdk.CoreConstants
 import com.hcl.appscan.sdk.scan.IScanManager
 import com.hcl.appscan.sdk.scan.ITarget
-import com.hcl.appscan.sdk.scanners.sast.SASTConstants
 import com.hcl.appscan.sdk.scanners.sast.SASTScanManager
 import org.gradle.api.Project
 
@@ -25,7 +24,6 @@ abstract class SASTSecurityAction extends SecurityAction {
     protected Map<String, String> getOptions() {
         Map<String, String> options = new HashMap<String, String>()
         options.put(CoreConstants.SCAN_NAME, getProject().applicationsecurity.irxName)
-        options.put(SASTConstants.SAVE_LOCATION, getProject().applicationsecurity.irxDir)
         options.put(CoreConstants.APP_ID, getProject().applicationsecurity.appId);
         options.put("APPSCAN_IRGEN_CLIENT", "Gradle");
         return options;
