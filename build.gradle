@@ -17,7 +17,7 @@ dependencies {
 }
 
 group = 'com.ibm.security'
-version = '1.0.0'
+version = '1.0.1'
 
 pluginBundle {
 	website = 'https://www.ibm.com/us-en/marketplace/application-security-on-cloud'
