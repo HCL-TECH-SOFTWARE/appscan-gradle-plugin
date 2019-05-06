@@ -16,20 +16,20 @@ dependencies {
         	'com.hcl:appscan.sdk:1.0.7'
 }
 
-group = 'com.ibm.security'
+group = 'com.hcl.security'
 version = '1.0.1'
 
 pluginBundle {
 	website = 'https://www.ibm.com/us-en/marketplace/application-security-on-cloud'
 	vcsUrl = 'https://github.com/hclproducts/application-security-gradle-plugin'
-	description = 'IBM Application Security on Cloud Gradle Plugin'
-	tags = ['security', 'appscan', 'static analyzer', 'ibm']
+	description = 'HCL AppScan on Cloud Gradle Plugin'
+	tags = ['security', 'appscan', 'static analyzer', 'hcl']
     
 	plugins {
         	applicationSecurityPlugin {
-            		id = 'com.ibm.application.security'
-            		displayName = 'IBM Application Security on Cloud Plugin'
-	    		description = 'Generates an IRX file for your Java projects and submits it to the IBM Application Security on Cloud service for analysis.'
+            		id = 'com.hcl.application.security'
+            		displayName = 'HCL AppScan on Cloud Plugin'
+	    		description = 'Generates an IRX file for your Java projects and submits it to the HCL AppScan on Cloud service for analysis.'
         }
     }
 }

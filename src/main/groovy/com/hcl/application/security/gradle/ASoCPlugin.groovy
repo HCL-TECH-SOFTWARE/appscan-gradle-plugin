@@ -18,7 +18,7 @@ class ASoCPlugin implements Plugin<Project> {
 
     void apply(Project project) {
 
-		project.subprojects*.apply(plugin: 'com.ibm.application.security')
+		project.subprojects*.apply(plugin: 'com.hcl.application.security')
 		project.extensions.create("applicationsecurity", ApplicationSecuritySettings, project)
 
 		project.task('appscan-prepare',
