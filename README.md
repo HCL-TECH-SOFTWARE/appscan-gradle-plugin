@@ -64,7 +64,7 @@ The appscanKey and appscanSecret options can be specified in the user's gradle.p
 	appscanKey="2358cd02-3fs3-322c-62c9-b5cc63c61f2a"
 	appscanSecret="qU939siTXgF7csk3jSig+Vza7ilWLu/Uy/ReWye5E/c="
 
-You can generate an API key id/secret [here](https://appscan.ibmcloud.com/AsoCUI/serviceui/main/admin/apiKey).
+You can generate an API key id/secret [here](https://cloud.appscan.com/AsoCUI/serviceui/main/admin/apiKey).
 
 # License
 
