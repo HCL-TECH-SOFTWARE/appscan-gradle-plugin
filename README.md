@@ -17,7 +17,7 @@ To use the plugin, add the following lines to build.gradle:
 For Gradle 2.1 and later:
 
 	plugins {
-		id "com.ibm.application.security" version "1.0.0"
+		id "com.ibm.application.security" version "1.0.2"
 	}
 
 For older Gradle versions:
@@ -26,7 +26,7 @@ For older Gradle versions:
 		repositories {
 	    		maven { url "https://plugins.gradle.org/m2/" }
 	  	}
-	  	dependencies { classpath "gradle.plugin.com.ibm.security:application-security-gradle-plugin:1.0.0" }
+	  	dependencies { classpath "gradle.plugin.com.ibm.security:application-security-gradle-plugin:1.0.2" }
 	}
 
 	apply plugin: 'com.ibm.application.security'
