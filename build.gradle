@@ -13,11 +13,11 @@ dependencies {
 	implementation \
         	localGroovy(),
         	gradleApi(),
-        	'com.hcl:appscan.sdk:1.0.7'
+        	'com.hcl:appscan.sdk:1.0.9'
 }
 
 group = 'com.hcl.security'
-version = '1.0.1'
+version = '1.0.0'
 
 pluginBundle {
 	website = 'https://www.ibm.com/us-en/marketplace/application-security-on-cloud'

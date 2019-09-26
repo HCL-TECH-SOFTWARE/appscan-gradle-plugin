@@ -4,11 +4,11 @@ Apply the power of static application security testing with HCL AppScan on Cloud
 
 You can submit static and open source scans directly from the HCL AppScan on Cloud Gradle plugin or use it to generate an IRX file for later submission to the service. The results are ready quickly (90% are ready in less than one hour) having been honed by Intelligent Finding Analytics, which uses HCL's Artificial Intelligence capabilities to greatly reduce false positives and other noise by an average of more than 98%. IFA also displays optimal locations for developers to fix multiple vulnerabilities in the code. Click [here](https://securityintelligence.com/intelligent-finding-analytics-cognitive-computing-application-security-expert/) for more information.
 
-Not yet a customer of HCL AppScan on Cloud? Click [here](http://ibm.biz/ASoC-FromIDE) for a free trial of Application Security on Cloud to use with this plugin
+Not yet a customer of HCL AppScan on Cloud? Click [here](https://cloud.appscan.com) for a free trial of Application Security on Cloud to use with this plugin
 
 # Prerequisites:
 
-- An account on the [HCL AppScan on Cloud](https://www.ibm.com/marketplace/cloud/application-security-on-cloud/) service. You'll need to [create an application](http://www.ibm.com/support/knowledgecenter/SSYJJF_1.0.0/ApplicationSecurityonCloud/ent_create_application.html) on the service to associate your scans with.
+- An account on the [HCL AppScan on Cloud](https://cloud.appscan.com/) service. You'll need to [create an application](http://www.ibm.com/support/knowledgecenter/SSYJJF_1.0.0/ApplicationSecurityonCloud/ent_create_application.html) on the service to associate your scans with.
 
 # Usage:
 
@@ -17,7 +17,7 @@ To use the plugin, add the following lines to build.gradle:
 For Gradle 2.1 and later:
 
 	plugins {
-		id "com.hcl.application.security" version "1.0.1"
+		id "com.hcl.application.security" version "1.0.0"
 	}
 
 For older Gradle versions:
