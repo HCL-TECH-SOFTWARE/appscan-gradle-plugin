@@ -20,7 +20,7 @@ group = 'com.hcl.security'
 version = '1.0.0'
 
 pluginBundle {
-	website = 'https://www.ibm.com/support/knowledgecenter/en/SSYJJF_1.0.0/ApplicationSecurityonCloud/src_irx_gen_gradle.html'
+	website = 'https://help.hcltechsw.com/appscan/ASoC/src_irx_gen_gradle.html'
 	vcsUrl = 'https://github.com/hclproducts/application-security-gradle-plugin'
 	description = 'HCL AppScan on Cloud Gradle Plugin'
 	tags = ['security', 'appscan', 'static analyzer', 'hcl']
