@@ -1,13 +1,13 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018.
+ * @ Copyright HCL Technologies Ltd. 2018, 2019.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
-package com.hcl.application.security.gradle.tasks
+package com.hcl.security.appscan.gradle.tasks
 
-import com.hcl.application.security.gradle.actions.AnalysisRunner
-import com.hcl.application.security.gradle.auth.GradleAuthenticationProvider
-import com.hcl.application.security.gradle.error.ASoCException
+import com.hcl.security.appscan.gradle.actions.AnalysisRunner
+import com.hcl.security.appscan.gradle.auth.GradleAuthenticationProvider
+import com.hcl.security.appscan.gradle.error.ASoCException
 import com.hcl.appscan.sdk.auth.IAuthenticationProvider
 import com.hcl.appscan.sdk.logging.DefaultProgress
 import com.hcl.appscan.sdk.scan.CloudScanServiceProvider

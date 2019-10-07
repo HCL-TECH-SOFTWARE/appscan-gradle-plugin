@@ -1,13 +1,13 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018.
+ * @ Copyright HCL Technologies Ltd. 2018, 2019.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
-package com.hcl.application.security.gradle.tasks
+package com.hcl.security.appscan.gradle.tasks
 
-import com.hcl.application.security.gradle.error.ASoCException
-import com.hcl.application.security.gradle.handlers.IPrepareHandler
-import com.hcl.application.security.gradle.handlers.PrepareHandlerFactory
+import com.hcl.security.appscan.gradle.error.ASoCException
+import com.hcl.security.appscan.gradle.handlers.IPrepareHandler
+import com.hcl.security.appscan.gradle.handlers.PrepareHandlerFactory
 import com.hcl.appscan.sdk.scan.ITarget
 import org.gradle.BuildAdapter
 import org.gradle.api.DefaultTask

@@ -17,7 +17,7 @@ To use the plugin, add the following lines to build.gradle:
 For Gradle 2.1 and later:
 
 	plugins {
-		id "com.hcl.application.security" version "1.0.0"
+		id "com.hcl.security.appscan" version "1.0.0"
 	}
 
 For older Gradle versions:
@@ -29,7 +29,7 @@ For older Gradle versions:
 	  dependencies { classpath "gradle.plugin.com.hcl.security:application-security-gradle-plugin:1.0.0" }
 	}
 
-	apply plugin: 'com.hcl.application.security'
+	apply plugin: 'com.hcl.security.appscan'
 
 # Tasks:
 
