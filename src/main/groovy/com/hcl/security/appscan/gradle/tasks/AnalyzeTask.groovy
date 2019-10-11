@@ -19,14 +19,14 @@ class AnalyzeTask extends SecurityTask {
 
     @Override
     protected BuildAdapter getPostBuildAction() {
-        String key = project.applicationsecurity.appscanKey;
-        String secret = project.applicationsecurity.appscanSecret;
+        String key = project.appscanSettings.appscanKey;
+        String secret = project.appscanSettings.appscanSecret;
 
         if(key == null || secret == null) {
             ASoCException e = new ASoCException("No credentials provided. Use -DappscanKey=<key> -DappscanSecret=<secret> to specify credentials.")
             throw new TaskExecutionException(this, e);
         }
-        else if(project.applicationsecurity.appId == "") { //$NON-NLS-1$
+        else if(project.appscanSettings.appId == "") { //$NON-NLS-1$
             ASoCException e = new ASoCException("No application Id provided. Use -DappId=<app ID> to specify the application ID.")
             throw new TaskExecutionException(this, e);
         }

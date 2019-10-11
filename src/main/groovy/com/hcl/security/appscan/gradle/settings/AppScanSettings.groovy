@@ -8,7 +8,7 @@ package com.hcl.security.appscan.gradle.settings
 import com.hcl.security.appscan.gradle.ASoCConstants
 import org.gradle.api.Project
 
-class ApplicationSecuritySettings implements ASoCConstants {
+class AppScanSettings implements ASoCConstants {
 
     String irxDir;
     String irxName;
@@ -16,7 +16,7 @@ class ApplicationSecuritySettings implements ASoCConstants {
     String appscanSecret;
     String appId;
 
-    public ApplicationSecuritySettings(Project project) {
+    public AppScanSettings(Project project) {
         irxDir = System.getProperty(PROP_IRX_DIR) ?: project.rootProject.buildDir.getAbsolutePath();
         irxName = System.getProperty(PROP_IRX_NAME) ?: project.rootProject.getName();
         appscanKey = System.getProperty(PROP_KEY) ?: project.rootProject.properties.appscanKey;

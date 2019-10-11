@@ -52,9 +52,9 @@ All options can be set through JVM parameters on the command line using the synt
 
 	gradle appscan-prepare -DirxName=MyApp
 
-All options can also be set using an "applicationsecurity" block in the build script. For example:
+All options can also be set using an "appscanSettings" block in the build script. For example:
 
-	applicationsecurity {
+	appscanSettings {
 		irxName="MyApp"
 		irxDir="/myApplication/sample"
 	}

@@ -5,7 +5,7 @@
 
 package com.hcl.security.appscan.gradle
 
-import com.hcl.security.appscan.gradle.settings.ApplicationSecuritySettings
+import com.hcl.security.appscan.gradle.settings.AppScanSettings
 import com.hcl.security.appscan.gradle.tasks.AnalyzeTask
 import com.hcl.security.appscan.gradle.tasks.PrepareTask
 import org.gradle.api.Plugin
@@ -19,7 +19,7 @@ class ASoCPlugin implements Plugin<Project> {
     void apply(Project project) {
 
 		project.subprojects*.apply(plugin: 'com.hcl.security.appscan')
-		project.extensions.create("applicationsecurity", ApplicationSecuritySettings, project)
+		project.extensions.create("appscanSettings", AppScanSettings, project)
 
 		project.task('appscan-prepare',
 					description: "Generates an IRX file for all projects in the build.",
