@@ -1,14 +1,14 @@
-# IBM Application Security on Cloud Gradle Plugin
+# HCL AppScan on Cloud Gradle Plugin
 
-Apply the power of static application security testing with IBM Application Security on Cloud – a SaaS solution that helps to eliminate vulnerabilities from applications before they are deployed. IBM Application Security on Cloud integrates directly into the SDLC, providing static, dynamic, mobile and open source testing.
+Apply the power of static application security testing with HCL AppScan on Cloud – a SaaS solution that helps to eliminate vulnerabilities from applications before they are deployed. HCL AppScan on Cloud integrates directly into the SDLC, providing static, dynamic, mobile and open source testing.
 
-You can submit static and open source scans directly from the IBM Application Security on Cloud Gradle plugin or use it to generate an IRX file for later submission to the service. The results are ready quickly (90% are ready in less than one hour) having been honed by Intelligent Finding Analytics, which uses IBM’s Artificial Intelligence capabilities to greatly reduce false positives and other noise by an average of more than 98%. IFA also displays optimal locations for developers to fix multiple vulnerabilities in the code. Click [here](https://securityintelligence.com/intelligent-finding-analytics-cognitive-computing-application-security-expert/) for more information.
+You can submit static and open source scans directly from the HCL AppScan on Cloud Gradle plugin or use it to generate an IRX file for later submission to the service. The results are ready quickly (90% are ready in less than one hour) having been honed by Intelligent Finding Analytics, which uses HCL's Artificial Intelligence capabilities to greatly reduce false positives and other noise by an average of more than 98%. IFA also displays optimal locations for developers to fix multiple vulnerabilities in the code. Click [here](https://securityintelligence.com/intelligent-finding-analytics-cognitive-computing-application-security-expert/) for more information.
 
-Not yet a customer of IBM Application Security on Cloud? Click [here](http://ibm.biz/ASoC-FromIDE) for a free trial of Application Security on Cloud to use with this plugin
+Not yet a customer of HCL AppScan on Cloud? Click [here](https://cloud.appscan.com) for a free trial of Application Security on Cloud to use with this plugin
 
 # Prerequisites:
 
-- An account on the [IBM Application Security on Cloud](https://www.ibm.com/marketplace/cloud/application-security-on-cloud/) service. You'll need to [create an application](http://www.ibm.com/support/knowledgecenter/SSYJJF_1.0.0/ApplicationSecurityonCloud/ent_create_application.html) on the service to associate your scans with.
+- An account on the [HCL AppScan on Cloud](https://cloud.appscan.com/) service. You'll need to [create an application](https://help.hcltechsw.com/appscan/ASoC/ent_create_application.html) on the service to associate your scans with.
 
 # Usage:
 
@@ -17,7 +17,7 @@ To use the plugin, add the following lines to build.gradle:
 For Gradle 2.1 and later:
 
 	plugins {
-		id "com.ibm.application.security" version "1.0.2"
+		id "com.hcl.security.appscan" version "1.0.0"
 	}
 
 For older Gradle versions:
@@ -26,10 +26,10 @@ For older Gradle versions:
 		repositories {
 	    		maven { url "https://plugins.gradle.org/m2/" }
 	  	}
-	  	dependencies { classpath "gradle.plugin.com.ibm.security:application-security-gradle-plugin:1.0.2" }
+	  dependencies { classpath "gradle.plugin.com.hcl.security:application-security-gradle-plugin:1.0.0" }
 	}
 
-	apply plugin: 'com.ibm.application.security'
+	apply plugin: 'com.hcl.security.appscan'
 
 # Tasks:
 
@@ -52,9 +52,9 @@ All options can be set through JVM parameters on the command line using the synt
 
 	gradle appscan-prepare -DirxName=MyApp
 
-All options can also be set using an "applicationsecurity" block in the build script. For example:
+All options can also be set using an "appscanSettings" block in the build script. For example:
 
-	applicationsecurity {
+	appscanSettings {
 		irxName="MyApp"
 		irxDir="/myApplication/sample"
 	}
@@ -64,7 +64,7 @@ The appscanKey and appscanSecret options can be specified in the user's gradle.p
 	appscanKey="2358cd02-3fs3-322c-62c9-b5cc63c61f2a"
 	appscanSecret="qU939siTXgF7csk3jSig+Vza7ilWLu/Uy/ReWye5E/c="
 
-You can generate an API key id/secret [here](https://cloud.appscan.com/AsoCUI/serviceui/main/admin/apiKey).
+You can generate an API key id/secret [here](https://cloud.appscan.com/api/ideclientuilogin).
 
 # License
 

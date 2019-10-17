@@ -1,14 +1,14 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018.
+ * @ Copyright HCL Technologies Ltd. 2018, 2019.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
-package com.hcl.application.security.gradle.settings
+package com.hcl.security.appscan.gradle.settings
 
-import com.hcl.application.security.gradle.ASoCConstants
+import com.hcl.security.appscan.gradle.ASoCConstants
 import org.gradle.api.Project
 
-class ApplicationSecuritySettings implements ASoCConstants {
+class AppScanSettings implements ASoCConstants {
 
     String irxDir;
     String irxName;
@@ -16,7 +16,7 @@ class ApplicationSecuritySettings implements ASoCConstants {
     String appscanSecret;
     String appId;
 
-    public ApplicationSecuritySettings(Project project) {
+    public AppScanSettings(Project project) {
         irxDir = System.getProperty(PROP_IRX_DIR) ?: project.rootProject.buildDir.getAbsolutePath();
         irxName = System.getProperty(PROP_IRX_NAME) ?: project.rootProject.getName();
         appscanKey = System.getProperty(PROP_KEY) ?: project.rootProject.properties.appscanKey;

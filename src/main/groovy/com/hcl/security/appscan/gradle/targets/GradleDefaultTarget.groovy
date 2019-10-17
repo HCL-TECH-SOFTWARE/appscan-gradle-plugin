@@ -1,9 +1,9 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018.
+ * @ Copyright HCL Technologies Ltd. 2018, 2019.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
-package com.hcl.application.security.gradle.targets
+package com.hcl.security.appscan.gradle.targets
 
 import com.hcl.appscan.sdk.scanners.sast.targets.DefaultTarget
 import org.gradle.api.Project

@@ -1,13 +1,13 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018.
+ * @ Copyright HCL Technologies Ltd. 2018, 2019.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
-package com.hcl.application.security.gradle.tasks
+package com.hcl.security.appscan.gradle.tasks
 
-import com.hcl.application.security.gradle.actions.AnalysisRunner
-import com.hcl.application.security.gradle.auth.GradleAuthenticationProvider
-import com.hcl.application.security.gradle.error.ASoCException
+import com.hcl.security.appscan.gradle.actions.AnalysisRunner
+import com.hcl.security.appscan.gradle.auth.GradleAuthenticationProvider
+import com.hcl.security.appscan.gradle.error.ASoCException
 import com.hcl.appscan.sdk.auth.IAuthenticationProvider
 import com.hcl.appscan.sdk.logging.DefaultProgress
 import com.hcl.appscan.sdk.scan.CloudScanServiceProvider
@@ -19,14 +19,14 @@ class AnalyzeTask extends SecurityTask {
 
     @Override
     protected BuildAdapter getPostBuildAction() {
-        String key = project.applicationsecurity.appscanKey;
-        String secret = project.applicationsecurity.appscanSecret;
+        String key = project.appscanSettings.appscanKey;
+        String secret = project.appscanSettings.appscanSecret;
 
         if(key == null || secret == null) {
             ASoCException e = new ASoCException("No credentials provided. Use -DappscanKey=<key> -DappscanSecret=<secret> to specify credentials.")
             throw new TaskExecutionException(this, e);
         }
-        else if(project.applicationsecurity.appId == "") { //$NON-NLS-1$
+        else if(project.appscanSettings.appId == "") { //$NON-NLS-1$
             ASoCException e = new ASoCException("No application Id provided. Use -DappId=<app ID> to specify the application ID.")
             throw new TaskExecutionException(this, e);
         }

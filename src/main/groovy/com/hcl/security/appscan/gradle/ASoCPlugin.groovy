@@ -1,13 +1,13 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018.
+ * @ Copyright HCL Technologies Ltd. 2018, 2019.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
-package com.hcl.application.security.gradle
+package com.hcl.security.appscan.gradle
 
-import com.hcl.application.security.gradle.settings.ApplicationSecuritySettings
-import com.hcl.application.security.gradle.tasks.AnalyzeTask
-import com.hcl.application.security.gradle.tasks.PrepareTask
+import com.hcl.security.appscan.gradle.settings.AppScanSettings
+import com.hcl.security.appscan.gradle.tasks.AnalyzeTask
+import com.hcl.security.appscan.gradle.tasks.PrepareTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.file.FileCollection
@@ -18,8 +18,8 @@ class ASoCPlugin implements Plugin<Project> {
 
     void apply(Project project) {
 
-		project.subprojects*.apply(plugin: 'com.ibm.application.security')
-		project.extensions.create("applicationsecurity", ApplicationSecuritySettings, project)
+		project.subprojects*.apply(plugin: 'com.hcl.security.appscan')
+		project.extensions.create("appscanSettings", AppScanSettings, project)
 
 		project.task('appscan-prepare',
 					description: "Generates an IRX file for all projects in the build.",
