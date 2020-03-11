@@ -1,5 +1,5 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018, 2019.
+ * @ Copyright HCL Technologies Ltd. 2018, 2019, 2020.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -27,7 +27,7 @@ abstract class SASTSecurityAction extends SecurityAction {
         Map<String, String> options = new HashMap<String, String>()
         options.put(CoreConstants.SCAN_NAME, getProject().appscanSettings.irxName)
         options.put(CoreConstants.APP_ID, getProject().appscanSettings.appId);
-        options.put("APPSCAN_IRGEN_CLIENT", "gradle-"+osName);
+        options.put("APPSCAN_IRGEN_CLIENT", "gradle-" + osName);
         return options;
     }
 
