@@ -1,5 +1,5 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018, 2019.
+ * @ Copyright HCL Technologies Ltd. 2018, 2019, 2020.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -10,6 +10,7 @@ import com.hcl.appscan.sdk.scan.IScanManager
 import com.hcl.appscan.sdk.scan.ITarget
 import com.hcl.appscan.sdk.scanners.sast.SASTScanManager
 import org.gradle.api.Project
+import com.hcl.appscan.sdk.utils.SystemUtil
 
 abstract class SASTSecurityAction extends SecurityAction {
 
@@ -22,10 +23,11 @@ abstract class SASTSecurityAction extends SecurityAction {
 
     @Override
     protected Map<String, String> getOptions() {
+        String osName = SystemUtil.getOS();
         Map<String, String> options = new HashMap<String, String>()
         options.put(CoreConstants.SCAN_NAME, getProject().appscanSettings.irxName)
         options.put(CoreConstants.APP_ID, getProject().appscanSettings.appId);
-        options.put("APPSCAN_IRGEN_CLIENT", "Gradle");
+        options.put("APPSCAN_IRGEN_CLIENT", "gradle-" + osName);
         return options;
     }
 
