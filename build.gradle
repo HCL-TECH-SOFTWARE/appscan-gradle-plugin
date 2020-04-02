@@ -13,11 +13,17 @@ dependencies {
 	implementation \
         	localGroovy(),
         	gradleApi(),
-        	'com.hcl:appscan.sdk:1.0.9'
+        	'com.hcl:appscan.sdk:1.0.14'
 }
 
 group = 'com.hcl.security'
 version = '1.0.0'
+
+jar {
+	manifest {
+		attributes 'Implementation-Version': version
+	}
+}
 
 pluginBundle {
 	website = 'https://help.hcltechsw.com/appscan/ASoC/src_irx_gen_gradle.html'

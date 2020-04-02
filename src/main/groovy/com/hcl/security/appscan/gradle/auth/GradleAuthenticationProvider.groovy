@@ -54,6 +54,11 @@ class GradleAuthenticationProvider implements IAuthenticationProvider {
         m_token = token;
     }
 
+    @Override
+    Proxy getProxy() {
+        return Proxy.NO_PROXY;
+    }
+
     private String getToken() {
         return m_token ?: ""; //$NON-NLS-1$
     }
