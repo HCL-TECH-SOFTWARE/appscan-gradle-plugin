@@ -27,8 +27,9 @@ abstract class SASTSecurityAction extends SecurityAction {
         Map<String, String> options = new HashMap<String, String>()
         options.put(CoreConstants.SCAN_NAME, getProject().appscanSettings.irxName)
         options.put(CoreConstants.APP_ID, getProject().appscanSettings.appId);
-        options.put("APPSCAN_IRGEN_CLIENT", "gradle-" + osName);
+        options.put("APPSCAN_IRGEN_CLIENT", "gradle");
         options.put("APPSCAN_CLIENT_VERSION", project.getGradle().getGradleVersion());
+        options.put("IRGEN_CLIENT_PLUGIN_VERSION", this.getClass().getPackage().getImplementationVersion());
         options.put("ClientType", "gradle-" + osName);
         return options;
     }
