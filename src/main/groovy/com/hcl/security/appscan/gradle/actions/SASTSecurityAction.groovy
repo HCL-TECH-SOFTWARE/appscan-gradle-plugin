@@ -29,8 +29,8 @@ abstract class SASTSecurityAction extends SecurityAction {
         options.put(CoreConstants.APP_ID, getProject().appscanSettings.appId);
         options.put("APPSCAN_IRGEN_CLIENT", "gradle");
         options.put("APPSCAN_CLIENT_VERSION", project.getGradle().getGradleVersion());
-        options.put("IRGEN_CLIENT_PLUGIN_VERSION", this.getClass().getPackage().getImplementationVersion());
-        options.put("ClientType", "gradle-" + osName);
+        options.put("IRGEN_CLIENT_PLUGIN_VERSION", getPluginVersion());
+        options.put("ClientType", "gradle-" + osName + "-" + getPluginVersion());
         return options;
     }
 
@@ -40,5 +40,9 @@ abstract class SASTSecurityAction extends SecurityAction {
         for(ITarget target : getTargets())
             manager.addScanTarget(target);
         return manager;
+    }
+
+    private String getPluginVersion() {
+        return this.getClass().getPackage().getImplementationVersion();
     }
 }
