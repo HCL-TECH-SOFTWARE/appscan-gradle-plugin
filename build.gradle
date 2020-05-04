@@ -13,11 +13,11 @@ dependencies {
 	implementation \
         	localGroovy(),
         	gradleApi(),
-        	'com.hcl:appscan.sdk:1.0.14'
+        	'com.hcl:appscan.sdk:1.0.15'
 }
 
 group = 'com.hcl.security'
-version = '1.0.0'
+version = '1.0.1'
 
 jar {
 	manifest {
