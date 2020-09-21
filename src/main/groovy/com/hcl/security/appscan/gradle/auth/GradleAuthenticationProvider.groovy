@@ -46,7 +46,7 @@ class GradleAuthenticationProvider implements IAuthenticationProvider {
 
     @Override
     String getServer() {
-        return SystemUtil.getDefaultServer();
+        return SystemUtil.getServer(m_key);
     }
 
     @Override
