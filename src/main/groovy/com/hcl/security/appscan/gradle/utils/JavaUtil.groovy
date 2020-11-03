@@ -5,19 +5,31 @@
 
 package com.hcl.security.appscan.gradle.utils
 
+import com.hcl.security.appscan.gradle.ASoCConstants
 import org.gradle.api.Project
 import org.gradle.api.tasks.SourceSet
 
 class JavaUtil {
 
+    private static final String s_separator = ";"
+
     static Set<String> getNamespaces(Project project) {
         Set<String> namespaces = new HashSet<String>()
 
-        for(SourceSet sourceSet : project.sourceSets) {
-            for(File outDir : sourceSet.getOutput().getClassesDirs()) {
-                for(File subDir : outDir.listFiles()) {
-                    if(subDir.isDirectory())
-                        namespaces.addAll(getNamespacesForDirectory(subDir))
+        //Allow user to override automatic namespace detection.
+        String namespaceOverride = System.getProperty(ASoCConstants.PROP_NAMESPACES)
+        if(namespaceOverride != null && !namespaceOverride.equalsIgnoreCase("true")) {
+            String userNamespaces = namespaceOverride.replaceAll("[^A-Za-z0-9;.]", "")
+            for(String userNamespace : userNamespaces.split(s_separator))
+                namespaces.add(userNamespace)
+        }
+        else {
+            for (SourceSet sourceSet : project.sourceSets) {
+                for (File outDir : sourceSet.getOutput().getClassesDirs()) {
+                    for (File subDir : outDir.listFiles()) {
+                        if (subDir.isDirectory())
+                            namespaces.addAll(getNamespacesForDirectory(subDir))
+                    }
                 }
             }
         }
@@ -26,14 +38,18 @@ class JavaUtil {
     }
 
     static String getNamespacesAsString(Project project) {
-        String separator = ";"
+        //Allow user to override automatic namespace detection.
+        String namespaceOverride = System.getProperty(ASoCConstants.PROP_NAMESPACES)
+        if(namespaceOverride != null && !namespaceOverride.equalsIgnoreCase("true"))
+            return namespaceOverride.replaceAll("[^A-Za-z0-9;.]", "")
+
         String namespaces = ""
 
         for(String namespace : getNamespaces(project)) {
-            namespaces += namespace + separator
+            namespaces += namespace + s_separator
         }
 
-        return namespaces.endsWith(separator) ? namespaces.substring(0, namespaces.length() - 1) : namespaces
+        return namespaces.endsWith(s_separator) ? namespaces.substring(0, namespaces.length() - 1) : namespaces
     }
 
     private static Set<String> getNamespacesForDirectory(File sourceDir) {

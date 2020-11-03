@@ -14,6 +14,7 @@ interface ASoCConstants {
     String PROP_KEY                 = "appscanKey";         //$NON-NLS-1$
     String PROP_SECRET              = "appscanSecret";      //$NON-NLS-1$
     String PROP_APP_ID              = "appId";              //$NON-NLS-1$
-    String PROP_IRX_DIR             = "irxDir"             //$NON-NLS-1$
-    String PROP_IRX_NAME            = "irxName";           //$NON-NLS-1$
+    String PROP_IRX_DIR             = "irxDir"              //$NON-NLS-1$
+    String PROP_IRX_NAME            = "irxName";            //$NON-NLS-1$
+    String PROP_NAMESPACES          = "namespaces";         //$NON-NLS-1$
 }
