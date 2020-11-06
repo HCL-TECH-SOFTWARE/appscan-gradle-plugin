@@ -1,12 +1,13 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018, 2019.
+ * @ Copyright HCL Technologies Ltd. 2018, 2020.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
 package com.hcl.security.appscan.gradle.targets
 
-import com.hcl.security.appscan.gradle.ASoCConstants
 import com.hcl.appscan.sdk.scanners.sast.targets.JEETarget
+import com.hcl.security.appscan.gradle.ASoCConstants
+import com.hcl.security.appscan.gradle.utils.JavaUtil
 import org.gradle.api.Project
 
 class GradleJEETarget extends JEETarget implements ASoCConstants {
@@ -43,5 +44,12 @@ class GradleJEETarget extends JEETarget implements ASoCConstants {
     File getTargetFile() {
         File target = m_project.war.archivePath
         return target.isFile() ? target : m_project.webAppDir
+    }
+
+    @Override
+    public Map<String, String> getProperties() {
+        Map<String, String> buildInfos = super.getProperties();
+        buildInfos.put("package_includes", JavaUtil.getNamespacesAsString(m_project));
+        return buildInfos;
     }
 }

@@ -47,6 +47,7 @@ For older Gradle versions:
 	appId             null - Required for 'appscan-analyze'         The id of the application in the cloud service.
 	appscanKey        null - Required for 'appscan-analyze'         The user's API key id for authentication.
 	appscanSecret     null - Required for 'appscan-analyze'         The user's API key secret for authentication.
+	namespaces	  null						Override automatic namespace detection. Set to "" to disable namespace detection.
 
 All options can be set through JVM parameters on the command line using the syntax -Doption=value. For example:
 
