@@ -7,9 +7,9 @@ package com.hcl.security.appscan.gradle.actions
 
 import com.hcl.appscan.sdk.error.AppScanException
 import com.hcl.appscan.sdk.logging.DefaultProgress
-import com.hcl.appscan.sdk.scan.IScanManager
 import com.hcl.appscan.sdk.scan.IScanServiceProvider
 import com.hcl.appscan.sdk.scan.ITarget
+import com.hcl.appscan.sdk.scanners.sast.SASTScanManager
 import org.gradle.BuildResult
 import org.gradle.api.GradleScriptException
 import org.gradle.api.Project
@@ -26,8 +26,9 @@ class AnalysisRunner extends SASTSecurityAction {
     @Override
     void buildFinished(BuildResult result) {
         try {
-            IScanManager manager = initScanManager();
+            SASTScanManager manager = getScanManager();
             manager.analyze(new DefaultProgress(), getOptions(), m_provider);
+            getProject().logger.info(manager.getScanId());
         } catch(AppScanException e) {
             throw new GradleScriptException("Failed to submit the security scan for analysis.", e)
         }
