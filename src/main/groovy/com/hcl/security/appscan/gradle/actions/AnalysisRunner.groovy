@@ -28,7 +28,7 @@ class AnalysisRunner extends SASTSecurityAction {
         try {
             SASTScanManager manager = getScanManager();
             manager.analyze(new DefaultProgress(), getOptions(), m_provider);
-            getProject().logger.info(manager.getScanId());
+            getProject().logger.info("AppScan ID: " + manager.getScanId());
         } catch(AppScanException e) {
             throw new GradleScriptException("Failed to submit the security scan for analysis.", e)
         }
