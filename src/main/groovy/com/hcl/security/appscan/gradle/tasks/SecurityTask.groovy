@@ -24,16 +24,19 @@ abstract class SecurityTask extends DefaultTask {
 
     @TaskAction
     def createTargets() {
-        if(project == project.getGradle().getRootProject()) {
-            m_targets.clear(); // specifically to fix gradle daemon issue
+        if(project == project.getGradle().getRootProject())
             project.getGradle().addBuildListener(getPostBuildAction());
-        }
+
         try {
             IPrepareHandler handler = PrepareHandlerFactory.createHandler(project);
             m_targets.addAll(handler.getTargets());
         } catch(ASoCException e) {
             throw new TaskExecutionException(this, e);
         }
+    }
+
+    public static void clearTargets() {
+        m_targets.clear(); // specifically to fix gradle daemon issue
     }
 
     protected Collection<ITarget> getTargets() {

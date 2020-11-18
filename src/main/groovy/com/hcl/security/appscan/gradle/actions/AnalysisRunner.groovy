@@ -10,6 +10,7 @@ import com.hcl.appscan.sdk.logging.DefaultProgress
 import com.hcl.appscan.sdk.scan.IScanManager
 import com.hcl.appscan.sdk.scan.IScanServiceProvider
 import com.hcl.appscan.sdk.scan.ITarget
+import com.hcl.security.appscan.gradle.tasks.SecurityTask
 import org.gradle.BuildResult
 import org.gradle.api.GradleScriptException
 import org.gradle.api.Project
@@ -28,6 +29,7 @@ class AnalysisRunner extends SASTSecurityAction {
         try {
             IScanManager manager = initScanManager();
             manager.analyze(new DefaultProgress(), getOptions(), m_provider);
+            SecurityTask.clearTargets();
         } catch(AppScanException e) {
             throw new GradleScriptException("Failed to submit the security scan for analysis.", e)
         }
