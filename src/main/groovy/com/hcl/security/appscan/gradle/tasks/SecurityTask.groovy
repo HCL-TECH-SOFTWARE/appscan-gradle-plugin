@@ -35,6 +35,10 @@ abstract class SecurityTask extends DefaultTask {
         }
     }
 
+    public static void clearTargets() {
+        m_targets.clear(); // specifically to fix gradle daemon issue
+    }
+
     protected Collection<ITarget> getTargets() {
         return m_targets;
     }
