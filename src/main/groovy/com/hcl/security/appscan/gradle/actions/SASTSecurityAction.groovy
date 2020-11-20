@@ -14,6 +14,8 @@ import com.hcl.appscan.sdk.utils.SystemUtil
 
 abstract class SASTSecurityAction extends SecurityAction {
 
+    private SASTScanManager m_scanManager;
+
     public SASTSecurityAction(Project project, Collection<ITarget> targets) {
         super(project, targets);
         File irx = new File(project.appscanSettings.irxDir, project.appscanSettings.irxName + ".irx"); //$NON-NLS-1$
@@ -36,10 +38,16 @@ abstract class SASTSecurityAction extends SecurityAction {
 
     @Override
     protected IScanManager initScanManager() {
-        IScanManager manager = new SASTScanManager(getProject().appscanSettings.irxDir);
+        m_scanManager = new SASTScanManager(getProject().appscanSettings.irxDir);
         for(ITarget target : getTargets())
-            manager.addScanTarget(target);
-        return manager;
+            m_scanManager.addScanTarget(target);
+        return m_scanManager;
+    }
+
+    protected SASTScanManager getScanManager() {
+        if(m_scanManager == null)
+            initScanManager();
+        return m_scanManager;
     }
 
     private String getPluginVersion() {
