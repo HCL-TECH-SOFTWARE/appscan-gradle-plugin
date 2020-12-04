@@ -19,13 +19,17 @@ abstract class SecurityTask extends DefaultTask {
 
     private static Collection<ITarget> m_targets = new HashSet<ITarget>();
 
+    private static boolean m_actionAdded = false;
+
     @InputFiles
     def inputfiles
 
     @TaskAction
     def createTargets() {
-        if(project == project.getGradle().getRootProject())
+        if (!m_actionAdded) {
             project.getGradle().addBuildListener(getPostBuildAction());
+            m_actionAdded = true;
+        }
 
         try {
             IPrepareHandler handler = PrepareHandlerFactory.createHandler(project);
@@ -35,8 +39,9 @@ abstract class SecurityTask extends DefaultTask {
         }
     }
 
-    public static void clearTargets() {
+    public static void cleanUp() {
         m_targets.clear(); // specifically to fix gradle daemon issue
+        m_actionAdded = false;
     }
 
     protected Collection<ITarget> getTargets() {
