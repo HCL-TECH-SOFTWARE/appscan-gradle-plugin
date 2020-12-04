@@ -19,16 +19,16 @@ abstract class SecurityTask extends DefaultTask {
 
     private static Collection<ITarget> m_targets = new HashSet<ITarget>();
 
-    private static boolean isAddedToPostBuildAction = false;
+    private static boolean m_actionAdded = false;
 
     @InputFiles
     def inputfiles
 
     @TaskAction
     def createTargets() {
-        if (isAddedToPostBuildAction == false) {
+        if (!m_actionAdded) {
             project.getGradle().addBuildListener(getPostBuildAction());
-            isAddedToPostBuildAction = true;
+            m_actionAdded = true;
         }
 
         try {
@@ -39,9 +39,9 @@ abstract class SecurityTask extends DefaultTask {
         }
     }
 
-    public static void actionsWhenBuildFinished() {
+    public static void cleanUp() {
         m_targets.clear(); // specifically to fix gradle daemon issue
-        isAddedToPostBuildAction = false;
+        m_actionAdded = false;
     }
 
     protected Collection<ITarget> getTargets() {

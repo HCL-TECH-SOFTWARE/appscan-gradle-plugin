@@ -25,7 +25,7 @@ class PrepareRunner extends SASTSecurityAction {
         try {
             IScanManager manager = initScanManager();
             manager.prepare(new DefaultProgress(), getOptions());
-            SecurityTask.actionsWhenBuildFinished();
+            SecurityTask.cleanUp();
         } catch(AppScanException e) {
             throw new GradleScriptException("Failed preparing for the security scan.", e)
         }
