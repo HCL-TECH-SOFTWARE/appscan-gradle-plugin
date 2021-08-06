@@ -12,6 +12,7 @@ import com.hcl.appscan.sdk.scan.ITarget
 import org.gradle.BuildAdapter
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.InputFiles
+import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction
 import org.gradle.api.tasks.TaskExecutionException
 
@@ -44,9 +45,11 @@ abstract class SecurityTask extends DefaultTask {
         m_actionAdded = false;
     }
 
+    @Internal
     protected Collection<ITarget> getTargets() {
         return m_targets;
     }
 
+    @Internal
     protected abstract BuildAdapter getPostBuildAction();
 }
