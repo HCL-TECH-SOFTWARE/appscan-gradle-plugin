@@ -21,7 +21,7 @@ version = '1.0.4'
 
 jar {
 	manifest {
-		attributes 'Implementation-Version': archiveVersion
+		attributes 'Implementation-Version': version
 	}
 }
 
