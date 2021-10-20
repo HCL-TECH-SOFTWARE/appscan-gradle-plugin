@@ -17,4 +17,5 @@ interface ASoCConstants {
     String PROP_IRX_DIR             = "irxDir"              //$NON-NLS-1$
     String PROP_IRX_NAME            = "irxName";            //$NON-NLS-1$
     String PROP_NAMESPACES          = "namespaces";         //$NON-NLS-1$
+    String PROP_SOURCE_CODE_ONLY    = "sourceCodeOnly";     //$NON-NLS-1$
 }

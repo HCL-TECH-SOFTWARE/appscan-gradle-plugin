@@ -10,6 +10,7 @@ import com.hcl.appscan.sdk.logging.DefaultProgress
 import com.hcl.appscan.sdk.scan.IScanServiceProvider
 import com.hcl.appscan.sdk.scan.ITarget
 import com.hcl.appscan.sdk.scanners.sast.SASTScanManager
+import com.hcl.security.appscan.gradle.ASoCConstants
 import com.hcl.security.appscan.gradle.tasks.SecurityTask
 import org.gradle.BuildResult
 import org.gradle.api.GradleScriptException
@@ -28,6 +29,8 @@ class AnalysisRunner extends SASTSecurityAction {
     void buildFinished(BuildResult result) {
         try {
             SASTScanManager manager = getScanManager();
+            if(System.getProperty(ASoCConstants.PROP_SOURCE_CODE_ONLY) != null)
+                manager.setIsSourceCodeOnlyEnabled(true);
             manager.analyze(new DefaultProgress(), getOptions(), m_provider);
             getProject().logger.println("AppScan ID: " + manager.getScanId());
             SecurityTask.cleanUp();
