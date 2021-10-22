@@ -11,12 +11,12 @@ import org.gradle.api.Project
 import org.gradle.api.plugins.WarPlugin
 import org.gradle.api.tasks.SourceSet
 
-class JavaSourceCodeOnlyHandler implements IPrepareHandler {
+class SourceCodeProjectHandler implements IPrepareHandler {
 
     private Project m_project;
     private List<ITarget> m_targets;
 
-    public JavaSourceCodeOnlyHandler(Project project) {
+    public SourceCodeProjectHandler(Project project) {
         m_project = project;
         m_targets = new ArrayList<ITarget>();
     }

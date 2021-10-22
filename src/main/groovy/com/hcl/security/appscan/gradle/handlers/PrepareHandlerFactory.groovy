@@ -5,15 +5,15 @@
 
 package com.hcl.security.appscan.gradle.handlers
 
-import com.hcl.security.appscan.gradle.ASoCConstants
+import com.hcl.appscan.sdk.utils.SystemUtil
 import org.gradle.api.Project
 
 class PrepareHandlerFactory {
 
     public static IPrepareHandler createHandler(Project project) {
 
-        if(System.getProperty(ASoCConstants.PROP_SOURCE_CODE_ONLY) != null)
-            return new JavaSourceCodeOnlyHandler(project)
+        if(SystemUtil.isSourceCodeOnly())
+            return new SourceCodeProjectHandler(project)
         else if (project.plugins.hasPlugin("com.android.application"))
             return new AndroidProjectHandler(project);
         else if(project.plugins.hasPlugin("java") || project.plugins.hasPlugin("org.gradle.java")) //$NON-NLS-1$ //$NON-NLS-2$

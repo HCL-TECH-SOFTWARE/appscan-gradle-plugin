@@ -9,7 +9,7 @@ import com.hcl.appscan.sdk.error.AppScanException
 import com.hcl.appscan.sdk.logging.DefaultProgress
 import com.hcl.appscan.sdk.scan.IScanManager
 import com.hcl.appscan.sdk.scan.ITarget
-import com.hcl.security.appscan.gradle.ASoCConstants
+import com.hcl.appscan.sdk.utils.SystemUtil
 import com.hcl.security.appscan.gradle.tasks.SecurityTask
 import org.gradle.BuildResult
 import org.gradle.api.GradleScriptException
@@ -25,7 +25,7 @@ class PrepareRunner extends SASTSecurityAction {
     void buildFinished(BuildResult result) {
         try {
             IScanManager manager = initScanManager();
-            if(System.getProperty(ASoCConstants.PROP_SOURCE_CODE_ONLY) != null)
+            if(SystemUtil.isSourceCodeOnly())
                 manager.setIsSourceCodeOnlyEnabled(true);
             manager.prepare(new DefaultProgress(), getOptions());
             SecurityTask.cleanUp();

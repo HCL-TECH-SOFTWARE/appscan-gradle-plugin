@@ -5,6 +5,7 @@
 
 package com.hcl.security.appscan.gradle
 
+import com.hcl.appscan.sdk.utils.SystemUtil
 import com.hcl.security.appscan.gradle.settings.AppScanSettings
 import com.hcl.security.appscan.gradle.tasks.AnalyzeTask
 import com.hcl.security.appscan.gradle.tasks.PrepareTask
@@ -39,9 +40,7 @@ class ASoCPlugin implements Plugin<Project> {
 	private FileCollection getInputFiles(Project project) {
 		FileCollection files;
 
-		if (System.getProperty(ASoCConstants.PROP_SOURCE_CODE_ONLY) != null)
-			files = project.files([]);
-		else if (project.plugins.hasPlugin('com.android.application'))
+		if (SystemUtil.isSourceCodeOnly() || project.plugins.hasPlugin('com.android.application'))
 			files = project.files([]);
 		else if (project.plugins.withType(WarPlugin).size() > 0)
 			files = project.war.outputs.files;
