@@ -67,6 +67,11 @@ The appscanKey and appscanSecret options can be specified in the user's gradle.p
 
 You can generate an API key id/secret [here](https://cloud.appscan.com/api/ideclientuilogin).
 
+To only scan source code using the syntax -DsourceCodeOnly on the command line. For example:
+
+	gradle appscan-prepare -DsourceCodeOnly
+
+
 # License
 
 All files found in this project are licensed under the [Apache License 2.0](LICENSE).
