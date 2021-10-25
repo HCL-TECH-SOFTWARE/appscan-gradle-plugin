@@ -12,9 +12,9 @@ class PrepareHandlerFactory {
 
     public static IPrepareHandler createHandler(Project project) {
 
-        if(SystemUtil.isSourceCodeOnly())
+        if(project.appscanSettings.sourceCodeOnly)
             return new SourceCodeProjectHandler(project)
-        else if (project.plugins.hasPlugin("com.android.application"))
+        else if(project.plugins.hasPlugin("com.android.application"))
             return new AndroidProjectHandler(project);
         else if(project.plugins.hasPlugin("java") || project.plugins.hasPlugin("org.gradle.java")) //$NON-NLS-1$ //$NON-NLS-2$
             return new JavaProjectHandler(project);

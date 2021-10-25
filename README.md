@@ -48,6 +48,7 @@ For older Gradle versions:
 	appscanKey        null - Required for 'appscan-analyze'         The user's API key id for authentication.
 	appscanSecret     null - Required for 'appscan-analyze'         The user's API key secret for authentication.
 	namespaces	  null						Override automatic namespace detection. Set to "" to disable namespace detection.
+    sourceCodeOnly    false                                         If set to true, only scan source code.
 
 All options can be set through JVM parameters on the command line using the syntax -Doption=value. For example:
 
@@ -67,7 +68,7 @@ The appscanKey and appscanSecret options can be specified in the user's gradle.p
 
 You can generate an API key id/secret [here](https://cloud.appscan.com/api/ideclientuilogin).
 
-To only scan source code using the syntax -DsourceCodeOnly on the command line. For example:
+To only scan source code, it can also be using the syntax -DsourceCodeOnly on the command line. For example:
 
 	gradle appscan-prepare -DsourceCodeOnly
 

@@ -29,7 +29,7 @@ class AnalysisRunner extends SASTSecurityAction {
     void buildFinished(BuildResult result) {
         try {
             SASTScanManager manager = getScanManager();
-            if(SystemUtil.isSourceCodeOnly())
+            if(project.appscanSettings.sourceCodeOnly)
                 manager.setIsSourceCodeOnlyEnabled(true);
             manager.analyze(new DefaultProgress(), getOptions(), m_provider);
             getProject().logger.println("AppScan ID: " + manager.getScanId());
