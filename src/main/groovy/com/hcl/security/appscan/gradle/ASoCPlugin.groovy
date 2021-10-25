@@ -39,7 +39,7 @@ class ASoCPlugin implements Plugin<Project> {
 	private FileCollection getInputFiles(Project project) {
 		FileCollection files;
 
-		if (project.plugins.hasPlugin('com.android.application'))
+		if (project.appscanSettings.sourceCodeOnly || project.plugins.hasPlugin('com.android.application'))
 			files = project.files([]);
 		else if (project.plugins.withType(WarPlugin).size() > 0)
 			files = project.war.outputs.files;

@@ -15,6 +15,7 @@ class AppScanSettings implements ASoCConstants {
     String appscanKey;
     String appscanSecret;
     String appId;
+    boolean sourceCodeOnly;
 
     public AppScanSettings(Project project) {
         irxDir = System.getProperty(PROP_IRX_DIR) ?: project.rootProject.buildDir.getAbsolutePath();
@@ -22,5 +23,6 @@ class AppScanSettings implements ASoCConstants {
         appscanKey = System.getProperty(PROP_KEY) ?: project.rootProject.properties.appscanKey;
         appscanSecret = System.getProperty(PROP_SECRET) ?: project.rootProject.properties.appscanSecret;
         appId = System.getProperty(PROP_APP_ID) ?: ""; //$NON-NLS-1$
+        sourceCodeOnly = System.getProperty("sourceCodeOnly") != null ?: project.rootProject.properties.sourceCodeOnly;
     }
 }
