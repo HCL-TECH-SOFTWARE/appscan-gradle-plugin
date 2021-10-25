@@ -5,7 +5,6 @@
 
 package com.hcl.security.appscan.gradle
 
-import com.hcl.appscan.sdk.utils.SystemUtil
 import com.hcl.security.appscan.gradle.settings.AppScanSettings
 import com.hcl.security.appscan.gradle.tasks.AnalyzeTask
 import com.hcl.security.appscan.gradle.tasks.PrepareTask

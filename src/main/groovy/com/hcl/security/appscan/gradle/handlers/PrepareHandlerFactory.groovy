@@ -5,7 +5,6 @@
 
 package com.hcl.security.appscan.gradle.handlers
 
-import com.hcl.appscan.sdk.utils.SystemUtil
 import org.gradle.api.Project
 
 class PrepareHandlerFactory {

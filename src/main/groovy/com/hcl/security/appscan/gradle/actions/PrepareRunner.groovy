@@ -9,7 +9,6 @@ import com.hcl.appscan.sdk.error.AppScanException
 import com.hcl.appscan.sdk.logging.DefaultProgress
 import com.hcl.appscan.sdk.scan.IScanManager
 import com.hcl.appscan.sdk.scan.ITarget
-import com.hcl.appscan.sdk.utils.SystemUtil
 import com.hcl.security.appscan.gradle.tasks.SecurityTask
 import org.gradle.BuildResult
 import org.gradle.api.GradleScriptException
