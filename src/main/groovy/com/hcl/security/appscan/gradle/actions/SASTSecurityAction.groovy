@@ -1,5 +1,5 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018, 2019, 2020.
+ * @ Copyright HCL Technologies Ltd. 2018, 2022.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -9,8 +9,8 @@ import com.hcl.appscan.sdk.CoreConstants
 import com.hcl.appscan.sdk.scan.IScanManager
 import com.hcl.appscan.sdk.scan.ITarget
 import com.hcl.appscan.sdk.scanners.sast.SASTScanManager
+import com.hcl.security.appscan.gradle.utils.PluginUtil
 import org.gradle.api.Project
-import com.hcl.appscan.sdk.utils.SystemUtil
 
 abstract class SASTSecurityAction extends SecurityAction {
 
@@ -25,14 +25,13 @@ abstract class SASTSecurityAction extends SecurityAction {
 
     @Override
     protected Map<String, String> getOptions() {
-        String osName = SystemUtil.getOS();
         Map<String, String> options = new HashMap<String, String>()
         options.put(CoreConstants.SCAN_NAME, getProject().appscanSettings.irxName)
         options.put(CoreConstants.APP_ID, getProject().appscanSettings.appId);
         options.put("APPSCAN_IRGEN_CLIENT", "gradle");
         options.put("APPSCAN_CLIENT_VERSION", project.getGradle().getGradleVersion());
-        options.put("IRGEN_CLIENT_PLUGIN_VERSION", getPluginVersion());
-        options.put("ClientType", "gradle-" + osName + "-" + getPluginVersion());
+        options.put("IRGEN_CLIENT_PLUGIN_VERSION", PluginUtil.getPluginVersion());
+        options.put("ClientType", PluginUtil.getClientType());
         return options;
     }
 
@@ -48,9 +47,5 @@ abstract class SASTSecurityAction extends SecurityAction {
         if(m_scanManager == null)
             initScanManager();
         return m_scanManager;
-    }
-
-    private String getPluginVersion() {
-        return this.getClass().getPackage().getImplementationVersion();
     }
 }
