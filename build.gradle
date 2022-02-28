@@ -13,7 +13,7 @@ dependencies {
 	implementation \
         	localGroovy(),
         	gradleApi(),
-        	'com.hcl:appscan.sdk:1.0.25'
+        	'com.hcl:appscan.sdk:1.0.26'
 }
 
 group = 'com.hcl.security'
