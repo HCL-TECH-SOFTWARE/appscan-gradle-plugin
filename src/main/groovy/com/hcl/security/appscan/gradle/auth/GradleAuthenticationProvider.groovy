@@ -1,5 +1,5 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018, 2019.
+ * @ Copyright HCL Technologies Ltd. 2018, 2022.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -9,6 +9,7 @@ import com.hcl.appscan.sdk.auth.AuthenticationHandler
 import com.hcl.appscan.sdk.auth.IAuthenticationProvider
 import com.hcl.appscan.sdk.auth.LoginType
 import com.hcl.appscan.sdk.utils.SystemUtil
+import com.hcl.security.appscan.gradle.utils.PluginUtil
 import org.apache.wink.json4j.JSONException
 
 class GradleAuthenticationProvider implements IAuthenticationProvider {
@@ -28,7 +29,7 @@ class GradleAuthenticationProvider implements IAuthenticationProvider {
         AuthenticationHandler handler = new AuthenticationHandler(this);
 
         try {
-            isExpired = handler.isTokenExpired() && !handler.login(m_key, m_secret, true, LoginType.ASoC_Federated);
+            isExpired = handler.isTokenExpired() && !handler.login(m_key, m_secret, true, LoginType.ASoC_Federated, PluginUtil.getClientType());
         } catch (IOException | JSONException e) {
             isExpired = false;
         }
