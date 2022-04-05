@@ -1,5 +1,5 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018, 2019.
+ * @ Copyright HCL Technologies Ltd. 2018, 2022.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -15,6 +15,7 @@ class AppScanSettings implements ASoCConstants {
     String appscanKey;
     String appscanSecret;
     String appId;
+    String namespaces;
     boolean sourceCodeOnly;
 
     public AppScanSettings(Project project) {
@@ -24,5 +25,6 @@ class AppScanSettings implements ASoCConstants {
         appscanSecret = System.getProperty(PROP_SECRET) ?: project.rootProject.properties.appscanSecret;
         appId = System.getProperty(PROP_APP_ID) ?: ""; //$NON-NLS-1$
         sourceCodeOnly = System.getProperty("sourceCodeOnly") != null ?: project.rootProject.properties.sourceCodeOnly;
+        namespaces = System.getProperty(PROP_NAMESPACES);
     }
 }

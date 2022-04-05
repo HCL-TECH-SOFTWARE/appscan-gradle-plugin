@@ -1,11 +1,11 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2020.
+ * @ Copyright HCL Technologies Ltd. 2020, 2022.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
 package com.hcl.security.appscan.gradle.utils
 
-import com.hcl.security.appscan.gradle.ASoCConstants
+
 import org.gradle.api.Project
 import org.gradle.api.tasks.SourceSet
 
@@ -17,7 +17,7 @@ class JavaUtil {
         Set<String> namespaces = new HashSet<String>()
 
         //Allow user to override automatic namespace detection.
-        String namespaceOverride = System.getProperty(ASoCConstants.PROP_NAMESPACES)
+        String namespaceOverride = project.appscanSettings.namespaces;
         if(namespaceOverride != null && !namespaceOverride.equalsIgnoreCase("true")) {
             String userNamespaces = namespaceOverride.replaceAll("[^A-Za-z0-9;.]", "")
             for(String userNamespace : userNamespaces.split(s_separator))
@@ -39,7 +39,7 @@ class JavaUtil {
 
     static String getNamespacesAsString(Project project) {
         //Allow user to override automatic namespace detection.
-        String namespaceOverride = System.getProperty(ASoCConstants.PROP_NAMESPACES)
+        String namespaceOverride = project.appscanSettings.namespaces;
         if(namespaceOverride != null && !namespaceOverride.equalsIgnoreCase("true"))
             return namespaceOverride.replaceAll("[^A-Za-z0-9;.]", "")
 

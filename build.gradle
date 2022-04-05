@@ -17,7 +17,7 @@ dependencies {
 }
 
 group = 'com.hcl.security'
-version = '1.0.6'
+version = '1.0.7'
 
 jar {
 	manifest {
