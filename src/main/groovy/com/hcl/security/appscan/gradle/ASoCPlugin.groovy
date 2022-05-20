@@ -8,6 +8,7 @@ package com.hcl.security.appscan.gradle
 import com.hcl.security.appscan.gradle.settings.AppScanSettings
 import com.hcl.security.appscan.gradle.tasks.AnalyzeTask
 import com.hcl.security.appscan.gradle.tasks.PrepareTask
+import com.hcl.security.appscan.gradle.tasks.GenerateConfigTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.file.FileCollection
@@ -31,6 +32,13 @@ class ASoCPlugin implements Plugin<Project> {
 		project.task('appscan-analyze',
 					description: "Generates an IRX file for all projects in the build and submits it to the cloud for analysis.",
 					type: AnalyzeTask) {
+					inputfiles = { getInputFiles(project) }
+					outputs.upToDateWhen {false}
+		}
+
+		project.task('appscan-generate-config',
+					description: "Generates appscan-config.xml file for all projects in the build.",
+					type: GenerateConfigTask) {
 					inputfiles = { getInputFiles(project) }
 					outputs.upToDateWhen {false}
 		}
