@@ -36,7 +36,7 @@ class ASoCPlugin implements Plugin<Project> {
 					outputs.upToDateWhen {false}
 		}
 
-		project.task('appscan-generate-config',
+		project.task('generate-appscan-config',
 					description: "Generates appscan-config.xml file for all projects in the build.",
 					type: GenerateConfigTask) {
 					inputfiles = { getInputFiles(project) }
