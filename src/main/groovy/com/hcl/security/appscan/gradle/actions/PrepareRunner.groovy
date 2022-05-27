@@ -24,8 +24,9 @@ class PrepareRunner extends SASTSecurityAction {
     void buildFinished(BuildResult result) {
         try {
             IScanManager manager = initScanManager();
-            if(project.appscanSettings.sourceCodeOnly)
-                manager.setIsSourceCodeOnlyEnabled(true);
+            manager.setIsSourceCodeOnlyEnabled(project.appscanSettings.sourceCodeOnly);
+            manager.setIsOpenSourceOnlyEnabled(project.appscanSettings.openSourceOnly);
+            manager.setIsStaticAnalysisOnlyEnabled(project.appscanSettings.staticAnalysisOnly);
             manager.prepare(new DefaultProgress(), getOptions());
             SecurityTask.cleanUp();
         } catch(AppScanException e) {
