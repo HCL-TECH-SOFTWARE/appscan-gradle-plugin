@@ -38,9 +38,9 @@ abstract class SASTSecurityAction extends SecurityAction {
     @Override
     protected IScanManager initScanManager() {
         m_scanManager = new SASTScanManager(getProject().appscanSettings.irxDir);
-        manager.setIsSourceCodeOnlyEnabled(project.appscanSettings.sourceCodeOnly);
-        manager.setIsOpenSourceOnlyEnabled(project.appscanSettings.openSourceOnly);
-        manager.setIsStaticAnalysisOnlyEnabled(project.appscanSettings.staticAnalysisOnly);
+        manager.setIsSourceCodeOnlyEnabled(getProject().appscanSettings.sourceCodeOnly);
+        manager.setIsOpenSourceOnlyEnabled(getProject().appscanSettings.openSourceOnly);
+        manager.setIsStaticAnalysisOnlyEnabled(getProject().appscanSettings.staticAnalysisOnly);
         
         for(ITarget target : getTargets())
             m_scanManager.addScanTarget(target);
