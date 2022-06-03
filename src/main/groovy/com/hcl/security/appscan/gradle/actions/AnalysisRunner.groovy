@@ -1,5 +1,5 @@
 /**
-* @ Copyright HCL Technologies Ltd. 2018, 2019.
+* @ Copyright HCL Technologies Ltd. 2018, 2022.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -28,9 +28,6 @@ class AnalysisRunner extends SASTSecurityAction {
     void buildFinished(BuildResult result) {
         try {
             SASTScanManager manager = getScanManager();
-            manager.setIsSourceCodeOnlyEnabled(project.appscanSettings.sourceCodeOnly);
-            manager.setIsOpenSourceOnlyEnabled(project.appscanSettings.openSourceOnly);
-            manager.setIsStaticAnalysisOnlyEnabled(project.appscanSettings.staticAnalysisOnly);
             manager.analyze(new DefaultProgress(), getOptions(), m_provider);
             getProject().logger.println("Scan ID: " + manager.getScanId());
             SecurityTask.cleanUp();

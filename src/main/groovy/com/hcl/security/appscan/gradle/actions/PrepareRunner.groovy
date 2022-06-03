@@ -1,5 +1,5 @@
 /**
-* @ Copyright HCL Technologies Ltd. 2018, 2019.
+* @ Copyright HCL Technologies Ltd. 2018, 2022.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -24,9 +24,6 @@ class PrepareRunner extends SASTSecurityAction {
     void buildFinished(BuildResult result) {
         try {
             IScanManager manager = initScanManager();
-            manager.setIsSourceCodeOnlyEnabled(project.appscanSettings.sourceCodeOnly);
-            manager.setIsOpenSourceOnlyEnabled(project.appscanSettings.openSourceOnly);
-            manager.setIsStaticAnalysisOnlyEnabled(project.appscanSettings.staticAnalysisOnly);
             manager.prepare(new DefaultProgress(), getOptions());
             SecurityTask.cleanUp();
         } catch(AppScanException e) {
