@@ -28,10 +28,11 @@ class AnalysisRunner extends SASTSecurityAction {
     void buildFinished(BuildResult result) {
         try {
             SASTScanManager manager = getScanManager();
-            if(project.appscanSettings.sourceCodeOnly)
-                manager.setIsSourceCodeOnlyEnabled(true);
+            manager.setIsSourceCodeOnlyEnabled(project.appscanSettings.sourceCodeOnly);
+            manager.setIsOpenSourceOnlyEnabled(project.appscanSettings.openSourceOnly);
+            manager.setIsStaticAnalysisOnlyEnabled(project.appscanSettings.staticAnalysisOnly);
             manager.analyze(new DefaultProgress(), getOptions(), m_provider);
-            getProject().logger.println("AppScan ID: " + manager.getScanId());
+            getProject().logger.println("Scan ID: " + manager.getScanId());
             SecurityTask.cleanUp();
         } catch(AppScanException e) {
             throw new GradleScriptException("Failed to submit the security scan for analysis.", e)
