@@ -1,0 +1,17 @@
+name: "HCL AppScan CodeSweep Publish"
+on:
+  pull_request:
+    types: [closed]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish issues to ASoC
+        uses: HCL-TECH-SOFTWARE/appscan-codesweep-action@v2
+        with:
+          asoc_key: ${{secrets.ASOC_KEY}}
+          asoc_secret: ${{secrets.ASOC_SECRET}}
+          publish_on_merge: true
+          application_id: 2684e356-fa86-424d-9180-832f2696d027
+    env: 
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
