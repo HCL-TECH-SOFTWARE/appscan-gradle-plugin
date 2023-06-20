@@ -12,12 +12,14 @@ Not yet a customer of HCL AppScan on Cloud? Click [here](https://cloud.appscan.c
 
 # Usage:
 
-To use the plugin, add the following lines to build.gradle:
+Usage information can be found on the [plugin page](https://plugins.gradle.org/plugin/com.hcl.security.appscan) in the Gradle plugins repository.
+
+To use the plugin, add the following lines to build.gradle, replacing \<version\> with the desired version of the plugin:
 
 For Gradle 2.1 and later:
 
 	plugins {
-		id "com.hcl.security.appscan" version "1.0.4"
+		id "com.hcl.security.appscan" version "<version>"
 	}
 
 For older Gradle versions:
@@ -26,7 +28,7 @@ For older Gradle versions:
 		repositories {
 	    		maven { url "https://plugins.gradle.org/m2/" }
 	  	}
-	  dependencies { classpath "gradle.plugin.com.hcl.security:application-security-gradle-plugin:1.0.4" }
+	  dependencies { classpath "gradle.plugin.com.hcl.security:application-security-gradle-plugin:<version>" }
 	}
 
 	apply plugin: 'com.hcl.security.appscan'
@@ -66,9 +68,9 @@ The appscanKey and appscanSecret options can be specified in the user's gradle.p
 	appscanKey="2358cd02-3fs3-322c-62c9-b5cc63c61f2a"
 	appscanSecret="qU939siTXgF7csk3jSig+Vza7ilWLu/Uy/ReWye5E/c="
 
-You can generate an API key id/secret [here](https://cloud.appscan.com/api/ideclientuilogin).
+You can generate an API key id/secret [here](https://cloud.appscan.com/main/apikey).
 
-To only scan source code, it can also be using the syntax -DsourceCodeOnly on the command line. For example:
+To only scan source code, use the -DsourceCodeOnly option on the command line. For example:
 
 	gradle appscan-prepare -DsourceCodeOnly
 
