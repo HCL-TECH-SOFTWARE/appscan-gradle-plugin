@@ -12,7 +12,7 @@ Not yet a customer of HCL AppScan on Cloud? Click [here](https://cloud.appscan.c
 
 # Usage:
 
-Usage information can be found on the [plugin page](https://plugins.gradle.org/plugin/com.hcl.security.appscan) in the Gradle plugins repository.
+Usage information and the latest version can be found on the [plugin page](https://plugins.gradle.org/plugin/com.hcl.security.appscan) in the Gradle plugins repository.
 
 To use the plugin, add the following lines to build.gradle, replacing \<version\> with the desired version of the plugin:
 
