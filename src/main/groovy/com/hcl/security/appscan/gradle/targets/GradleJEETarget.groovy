@@ -31,7 +31,7 @@ class GradleJEETarget extends JEETarget implements ASoCConstants {
 
     @Override
     String getClasspath() {
-        return m_project.sourceSets.main.java.outputDir
+        return m_project.sourceSets.main.java.classesDirectory
     }
 
     @Override
