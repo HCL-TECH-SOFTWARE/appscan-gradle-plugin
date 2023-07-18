@@ -38,7 +38,7 @@ class GradleJavaTarget extends JavaTarget implements ASoCConstants{
 
     @Override
     File getTargetFile() {
-        return m_project.hasProperty("jar") ? m_project.jar.archivePath : m_project.sourceSets.main.java.outputDir; //$NON-NLS-1$
+        return m_project.hasProperty("jar") ? m_project.jar.archivePath : m_project.sourceSets.main.java.classesDirectory; //$NON-NLS-1$
     }
 
     @Override
