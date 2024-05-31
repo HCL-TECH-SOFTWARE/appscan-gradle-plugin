@@ -1,5 +1,5 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018, 2022.
+ * @ Copyright HCL Technologies Ltd. 2018, 2024.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -17,10 +17,18 @@ class GradleAuthenticationProvider implements IAuthenticationProvider {
     private String m_token = null;
     private String m_key;
     private String m_secret;
+    private String m_serviceUrl = null;
+    private boolean m_acceptssl = false;
 
     public GradleAuthenticationProvider(String key, String secret) {
+        this(key, secret, null, false);
+    }
+
+    public GradleAuthenticationProvider(String key, String secret, String serviceUrl, boolean acceptssl) {
         m_key = key;
         m_secret = secret;
+        m_serviceUrl = serviceUrl;
+        m_acceptssl = acceptssl;
     }
 
     @Override
@@ -47,7 +55,7 @@ class GradleAuthenticationProvider implements IAuthenticationProvider {
 
     @Override
     String getServer() {
-        return SystemUtil.getServer(m_key);
+        return m_serviceUrl == null || m_serviceUrl.trim().isEmpty() ? SystemUtil.getServer(m_key) : m_serviceUrl;
     }
 
     @Override
@@ -58,6 +66,11 @@ class GradleAuthenticationProvider implements IAuthenticationProvider {
     @Override
     Proxy getProxy() {
         return Proxy.NO_PROXY;
+    }
+
+    @Override
+    public boolean getacceptInvalidCerts() {
+        return m_acceptssl;
     }
 
     private String getToken() {

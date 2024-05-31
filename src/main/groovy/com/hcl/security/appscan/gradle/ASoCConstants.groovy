@@ -1,5 +1,5 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018, 2020.
+ * @ Copyright HCL Technologies Ltd. 2018, 2024.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -17,4 +17,6 @@ interface ASoCConstants {
     String PROP_IRX_DIR             = "irxDir"              //$NON-NLS-1$
     String PROP_IRX_NAME            = "irxName";            //$NON-NLS-1$
     String PROP_NAMESPACES          = "namespaces";         //$NON-NLS-1$
+    String PROP_SERVICE_URL         = "serviceUrl";         //$NON-NLS-1$
+    String PROP_ACCEPT_SSL          = "acceptssl";          //$NON-NLS-1$
 }

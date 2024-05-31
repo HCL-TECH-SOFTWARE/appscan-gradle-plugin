@@ -1,5 +1,5 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018, 2022.
+ * @ Copyright HCL Technologies Ltd. 2018, 2024.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -16,6 +16,8 @@ class AppScanSettings implements ASoCConstants {
     String appscanSecret;
     String appId;
     String namespaces;
+    String serviceUrl;
+    boolean acceptssl;
     boolean sourceCodeOnly;
     boolean openSourceOnly;
     boolean staticAnalysisOnly;
@@ -26,6 +28,8 @@ class AppScanSettings implements ASoCConstants {
         appscanKey = System.getProperty(PROP_KEY) ?: project.rootProject.properties.appscanKey;
         appscanSecret = System.getProperty(PROP_SECRET) ?: project.rootProject.properties.appscanSecret;
         appId = System.getProperty(PROP_APP_ID) ?: ""; //$NON-NLS-1$
+        serviceUrl = System.getProperty(PROP_SERVICE_URL) ?: project.rootProject.properties.serviceUrl;
+        acceptssl = System.getProperty(PROP_ACCEPT_SSL) != null ?: project.rootProject.properties.acceptssl;
         sourceCodeOnly = System.getProperty("sourceCodeOnly") != null ?: project.rootProject.properties.sourceCodeOnly;
         openSourceOnly = System.getProperty("openSourceOnly") != null ?: project.rootProject.properties.openSourceOnly;
         staticAnalysisOnly = System.getProperty("staticAnalysisOnly") != null ?: project.rootProject.properties.staticAnalysisOnly;
