@@ -8,6 +8,7 @@ package com.hcl.security.appscan.gradle.actions
 import com.hcl.appscan.sdk.CoreConstants
 import com.hcl.appscan.sdk.scan.IScanManager
 import com.hcl.appscan.sdk.scan.ITarget
+import com.hcl.appscan.sdk.scanners.sast.SASTConstants
 import com.hcl.appscan.sdk.scanners.sast.SASTScanManager
 import com.hcl.security.appscan.gradle.utils.PluginUtil
 import org.gradle.api.Project
@@ -31,7 +32,7 @@ abstract class SASTSecurityAction extends SecurityAction {
         options.put(SASTConstants.APPSCAN_IRGEN_CLIENT, "gradle"); //$NON-NLS-1$
         options.put(SASTConstants.APPSCAN_CLIENT_VERSION, project.getGradle().getGradleVersion());
         options.put(SASTConstants.IRGEN_CLIENT_PLUGIN_VERSION, PluginUtil.getPluginVersion());
-        options.put(CoreConstants.ClientType, PluginUtil.getClientType());
+        options.put(CoreConstants.CLIENT_TYPE, PluginUtil.getClientType());
         return options;
     }
 
