@@ -1,5 +1,5 @@
 /**
- * @ Copyright HCL Technologies Ltd. 2018, 2019.
+ * @ Copyright HCL Technologies Ltd. 2018, 2024.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -31,7 +31,7 @@ class AnalyzeTask extends SecurityTask {
             throw new TaskExecutionException(this, e);
         }
 
-        IAuthenticationProvider authProvider = new GradleAuthenticationProvider(key, secret);
+        IAuthenticationProvider authProvider = new GradleAuthenticationProvider(key, secret, project.appscanSettings.serviceUrl, project.appscanSettings.acceptssl);
         IScanServiceProvider serviceProvider = new CloudScanServiceProvider(new DefaultProgress(), authProvider);
         return new AnalysisRunner(project, getTargets(), serviceProvider);
     }
