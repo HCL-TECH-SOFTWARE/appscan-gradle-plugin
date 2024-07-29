@@ -1,5 +1,5 @@
 /**
-* @ Copyright HCL Technologies Ltd. 2018, 2022.
+* @ Copyright HCL Technologies Ltd. 2018, 2024.
  * LICENSE: Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -29,7 +29,6 @@ class AnalysisRunner extends SASTSecurityAction {
         try {
             SASTScanManager manager = getScanManager();
             manager.analyze(new DefaultProgress(), getOptions(), m_provider);
-            getProject().logger.println("Scan ID: " + manager.getScanId());
             SecurityTask.cleanUp();
         } catch(AppScanException e) {
             throw new GradleScriptException("Failed to submit the security scan for analysis.", e)
