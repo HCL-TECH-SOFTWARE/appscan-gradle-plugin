@@ -43,14 +43,20 @@ For older Gradle versions:
   
 # Configurable Options:
 
-	OPTION:			DEFAULT VALUE				DESCRIPTION
-	irxName           The name of the root project                  The name of the generated .irx file.
-	irxDir            The build directory of the root project.      The location for the generated .irx file.
-	appId             null - Required for 'appscan-analyze'         The id of the application in the cloud service.
-	appscanKey        null - Required for 'appscan-analyze'         The user's API key id for authentication.
-	appscanSecret     null - Required for 'appscan-analyze'         The user's API key secret for authentication.
-	namespaces	  null						Override automatic namespace detection. Set to "" to disable namespace detection.
-    sourceCodeOnly    false                                         If set to true, only scan source code.
+	OPTION:				DEFAULT VALUE				DESCRIPTION
+	irxName           	The name of the root project                  The name of the generated .irx file.
+	irxDir            	The build directory of the root project.      The location for the generated .irx file.
+	appId             	null - Required for 'appscan-analyze'         The id of the application in the cloud service.
+	appscanKey        	null - Required for 'appscan-analyze'         The user's API key id for authentication.
+	appscanSecret     	null - Required for 'appscan-analyze'         The user's API key secret for authentication.
+	namespaces	  	null					      Override automatic namespace detection. Set to "" to disable namespace detection.
+    sourceCodeOnly    	false					      If set to true, only scan source code.
+    openSourceOnly	  	false					      Only run software composition analysis (SCA). Do not run static analysis.
+	staticAnalysisOnly	false					      Only run static analysis. Do not run software composition analysis (SCA).
+ 	jspCompiler     	Default Tomcat JSP Compiler                   The JSP compiler path.
+	thirdParty		false					      Include known third party packages in static analysis (not recommended).
+	serviceUrl		null					      REQUIRED for AppScan 360. The AppScan 360 service url. Not applicable to AppScan on Cloud.
+	acceptssl		false					      Ignore untrusted certificates when connecting to AppScan 360. Only intended for testing purposes. Not applicable to AppScan on Cloud.
 
 All options can be set through JVM parameters on the command line using the syntax -Doption=value. For example:
 
