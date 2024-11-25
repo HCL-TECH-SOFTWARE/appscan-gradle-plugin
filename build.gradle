@@ -29,14 +29,14 @@ jar {
 pluginBundle {
 	website = 'https://help.hcltechsw.com/appscan/ASoC/src_irx_gen_gradle.html'
 	vcsUrl = 'https://github.com/hclproducts/application-security-gradle-plugin'
-	description = 'HCL AppScan on Cloud Gradle Plugin'
+	description = 'HCL AppScan Gradle Plugin'
 	tags = ['security', 'appscan', 'static analyzer', 'hcl']
     
 	plugins {
         	appscanPlugin {
             		id = 'com.hcl.security.appscan'
-            		displayName = 'HCL AppScan on Cloud Plugin'
-	    		description = 'Generates an IRX file for your Java projects and submits it to the HCL AppScan on Cloud service for analysis.'
+            		displayName = 'HCL AppScan Plugin'
+	    		description = 'Generates an IRX file for your Java projects and submits it to HCL AppScan on Cloud or AppScan 360 for analysis.'
         }
     }
 }

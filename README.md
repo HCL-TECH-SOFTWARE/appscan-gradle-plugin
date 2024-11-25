@@ -1,14 +1,14 @@
-# HCL AppScan on Cloud Gradle Plugin
+# HCL AppScan Gradle Plugin
 
-Apply the power of static application security testing with HCL AppScan on Cloud – a SaaS solution that helps to eliminate vulnerabilities from applications before they are deployed. HCL AppScan on Cloud integrates directly into the SDLC, providing static, dynamic, mobile and open source testing.
+Apply the power of static application security testing with HCL AppScan on Cloud or AppScan 360 – a SaaS solution that helps to eliminate vulnerabilities from applications before they are deployed. HCL AppScan integrates directly into the SDLC, providing static, dynamic, mobile and open source testing.
 
-You can submit static and open source scans directly from the HCL AppScan on Cloud Gradle plugin or use it to generate an IRX file for later submission to the service. The results are ready quickly (90% are ready in less than one hour) having been honed by Intelligent Finding Analytics, which uses HCL's Artificial Intelligence capabilities to greatly reduce false positives and other noise by an average of more than 98%. IFA also displays optimal locations for developers to fix multiple vulnerabilities in the code. Click [here](https://securityintelligence.com/intelligent-finding-analytics-cognitive-computing-application-security-expert/) for more information.
+You can submit static and open source scans directly from the HCL AppScan Gradle plugin or use it to generate an IRX file for later submission to the service. The results are ready quickly (90% are ready in less than one hour) having been honed by Intelligent Finding Analytics, which uses HCL's Artificial Intelligence capabilities to greatly reduce false positives and other noise by an average of more than 98%. IFA also displays optimal locations for developers to fix multiple vulnerabilities in the code. Click [here](https://securityintelligence.com/intelligent-finding-analytics-cognitive-computing-application-security-expert/) for more information.
 
-Not yet a customer of HCL AppScan on Cloud? Click [here](https://cloud.appscan.com) for a free trial of Application Security on Cloud to use with this plugin
+Not yet a customer of HCL AppScan? Click [here](https://cloud.appscan.com) for a free trial of Application Security on Cloud to use with this plugin
 
 # Prerequisites:
 
-- An account on the [HCL AppScan on Cloud](https://cloud.appscan.com/) service. You'll need to [create an application](https://help.hcltechsw.com/appscan/ASoC/ent_create_application.html) on the service to associate your scans with.
+- An account on the [HCL AppScan](https://cloud.appscan.com/) service. You'll need to [create an application](https://help.hcltechsw.com/appscan/ASoC/ent_create_application.html) on the service to associate your scans with.
 
 # Usage:
 
@@ -39,14 +39,14 @@ For older Gradle versions:
 	Generates an IRX file for all Java and War projects in the build. The IRX file will be generated in the root project's "build" directory by default.
 
 - appscan-analyze:
-  Generates an IRX file and submits it to the cloud service for analysis. This task requires an api key, secret, and application id.
+  Generates an IRX file and submits it to the cloud service or to AppScan 360 for analysis. This task requires an api key, secret, and application id.
   
 # Configurable Options:
 
 	OPTION:				DEFAULT VALUE				DESCRIPTION
 	irxName           	The name of the root project                  The name of the generated .irx file.
 	irxDir            	The build directory of the root project.      The location for the generated .irx file.
-	appId             	null - Required for 'appscan-analyze'         The id of the application in the cloud service.
+	appId             	null - Required for 'appscan-analyze'         The id of the application in the service.
 	appscanKey        	null - Required for 'appscan-analyze'         The user's API key id for authentication.
 	appscanSecret     	null - Required for 'appscan-analyze'         The user's API key secret for authentication.
 	namespaces	  	null					      Override automatic namespace detection. Set to "" to disable namespace detection.

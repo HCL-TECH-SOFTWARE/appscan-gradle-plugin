@@ -30,7 +30,7 @@ class ASoCPlugin implements Plugin<Project> {
 		}
 
 		project.task('appscan-analyze',
-					description: "Generates an IRX file for all projects in the build and submits it to the cloud for analysis.",
+					description: "Generates an IRX file for all projects in the build and submits it to the service for analysis.",
 					type: AnalyzeTask) {
 					inputfiles = { getInputFiles(project) }
 					outputs.upToDateWhen {false}
